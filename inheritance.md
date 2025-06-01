@@ -128,5 +128,8 @@ class Cat extends Animal {
 
 
  1. whenever you create a object of a class first parent constructor is execeuted 
+ 2. we do not extend constructor
+ 3. super must be written in first line
+ 4. this must be written in first line       
 
 ```
