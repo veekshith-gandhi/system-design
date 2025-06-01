@@ -126,4 +126,7 @@ class Cat extends Animal {
     }
 }
 
+
+ 1. whenever you create a object of a class first parent constructor is execeuted 
+
 ```
