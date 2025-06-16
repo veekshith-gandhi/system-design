@@ -91,3 +91,96 @@ abstract class Dog implements Animal {
 2. Abstract classes can skip implementing interface methods.
 3. Concrete classes must provide implementations.
 
+
+# Understanding `static` in Abstract Classes - Java
+
+## 🔸 Can Abstract Classes Have Static Members?
+
+✅ **Yes**, abstract classes can have:
+- `static` variables
+- `static` methods
+- `static` blocks
+
+Since abstract classes can't be instantiated directly, `static` members are useful for logic that belongs to the class itself, not any object.
+
+---
+
+## 💡 Use Case of `static` in Abstract Class
+
+Static methods are often utility methods or shared logic that subclasses can use without needing an instance.
+
+### ✅ Example:
+
+```java
+abstract class Shape {
+    static int shapeCount = 0;
+
+    static void printShapeInfo() {
+        System.out.println("This is a shape class");
+    }
+
+    abstract double area();
+}
+
+Shape.printShapeInfo(); // Output: This is a shape class
+System.out.println(Shape.shapeCount); // Output: 0
+
+```
+
+## 🔹 Can You Use abstract static Methods?
+- ❌ No, Java does not allow abstract static methods.
+
+Why Not?
+
+1. abstract means the method must be overridden in a subclass.
+2. static means the method cannot be overridden, only hidden.
+
+```java
+abstract static void doSomething(); // ❌ Not allowed
+```
+
+##  You Use final static in Abstract Classes to declare constants
+
+```java
+abstract class Shape {
+    public static final double PI = 3.14159;
+}
+```
+
+# 🧠 Abstract Class vs Interface in Java
+
+Java provides two ways to achieve abstraction: **Abstract Classes** and **Interfaces**. Each has its own strengths and use cases.
+
+---
+
+## 🔍 Comparison Table
+
+| Feature                            | Abstract Class                                | Interface                                      |
+|------------------------------------|-----------------------------------------------|------------------------------------------------|
+| **Keyword Used**                   | `abstract`                                    | `interface`                                    |
+| **Multiple Inheritance**           | ❌ Not supported (only single inheritance)     | ✅ Yes, multiple interfaces can be implemented |
+| **Default Method Implementation**  | ✅ Yes, can have method bodies                 | ✅ Yes (from Java 8 onwards)                   |
+| **Constructor**                    | ✅ Yes                                         | ❌ No                                          |
+| **Access Modifiers**               | Can use public, protected, private            | Methods are implicitly `public abstract` (except static/default) |
+| **Variables**                      | Instance or static variables                  | Only static `final` constants                 |
+| **Type of Methods Allowed**        | Abstract and concrete                         | Abstract, default, static, and private methods (from Java 9) |
+| **Use Case**                       | When classes share common behavior            | When unrelated classes need to follow a contract |
+| **Performance**                    | Slightly faster (due to method body presence) | Interface calls may be slower (resolved at runtime) |
+
+---
+
+## ✅ When to Use What?
+
+### Use **Abstract Class** when:
+- You want to share code among related classes.
+- You expect future extensions with default behavior.
+- You need fields or constructors.
+
+### Use **Interface** when:
+- You need to define a contract for behavior.
+- You want to support multiple inheritance.
+- You are building plug-and-play architecture or APIs.
+
+---
+
+
