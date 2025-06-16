@@ -1,0 +1,4 @@
+Static , dynamic - >Binding
+Final Keyword
+abstract class
+abstract vs interface

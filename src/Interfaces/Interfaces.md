@@ -177,6 +177,7 @@ The JVM doesn’t allow object-based calling for interface static methods.
 
 ## 🔁 Example
 
+## Java class can implement multiple interfaces but cannot extend multiple classes 
 ```java
 interface MyInterface {
     void method1();
